@@ -1,0 +1,487 @@
+:root {
+    --primary-color: #171a21;
+    --secondary-color: #1b2838;
+    --accent-color: #66c0f4;
+    --accent-hover: #1999ff;
+    --text-color: #ffffff;
+    --text-secondary: #acb2b8;
+    --card-bg: #2a475e;
+    --card-hover: #32566e;
+    --input-bg: #316282;
+    --steam-blue: #66c0f4;
+    --steam-blue-dark: #1b2838;
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    position: relative;
+}
+
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(135deg, rgba(102, 192, 244, 0.1) 0%, transparent 100%),
+        radial-gradient(circle at top right, rgba(102, 192, 244, 0.15) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Header Styles */
+header {
+    background-color: rgba(27, 40, 56, 0.95);
+    padding: 1rem 2rem;
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(102, 192, 244, 0.2);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--steam-blue);
+}
+
+.logo i {
+    font-size: 2rem;
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-links a i {
+    font-size: 1.1rem;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background-color: rgba(102, 192, 244, 0.1);
+    color: var(--steam-blue);
+    transform: translateY(-2px);
+}
+
+/* Main Content */
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+/* Search Section */
+.search-section {
+    margin-bottom: 2rem;
+}
+
+.search-container {
+    display: flex;
+    gap: 1rem;
+    background: rgba(27, 40, 56, 0.8);
+    padding: 1.5rem;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(102, 192, 244, 0.2);
+}
+
+.search-box, .filter-box {
+    position: relative;
+    flex: 1;
+}
+
+.search-box i, .filter-box i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--steam-blue);
+    pointer-events: none;
+}
+
+/* Info Banner */
+.info-banner {
+    margin-bottom: 2rem;
+    background: rgba(27, 40, 56, 0.8);
+    border-radius: 12px;
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(102, 192, 244, 0.2);
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.stat-item i {
+    font-size: 1.5rem;
+    color: var(--steam-blue);
+}
+
+.stat-item span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.stat-item label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Input Styles */
+input[type="text"],
+select {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+select:focus {
+    outline: none;
+    border-color: var(--steam-blue);
+    box-shadow: 0 0 0 4px rgba(102, 192, 244, 0.1);
+}
+
+/* Account Cards */
+.accounts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.5rem;
+}
+
+.account-card {
+    background: linear-gradient(145deg, 
+        rgba(42, 71, 94, 0.9), 
+        rgba(27, 40, 56, 0.9));
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(102, 192, 244, 0.2);
+    backdrop-filter: blur(5px);
+}
+
+.account-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    border-color: var(--steam-blue);
+}
+
+.account-name {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--steam-blue);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.games-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(90deg, var(--steam-blue), var(--accent-hover));
+    color: var(--primary-color);
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px rgba(102, 192, 244, 0.3);
+}
+
+.games-list {
+    list-style: none;
+}
+
+.games-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(102, 192, 244, 0.1);
+}
+
+.games-list li:last-child {
+    border-bottom: none;
+}
+
+.game-name {
+    font-weight: 500;
+    color: var(--text-color);
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.game-genres {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+/* About Section */
+.about-section {
+    background: rgba(27, 40, 56, 0.8);
+    border-radius: 12px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(102, 192, 244, 0.2);
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+
+/* Add these styles to your existing CSS */
+
+.game-list-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    border-bottom: 1px solid rgba(102, 192, 244, 0.1);
+    transition: all 0.3s ease;
+}
+
+.game-list-item:hover {
+    background: rgba(102, 192, 244, 0.1);
+}
+
+.game-list-item i {
+    color: var(--steam-blue);
+    font-size: 1rem;
+}
+
+.game-list-item .game-name {
+    font-size: 0.95rem;
+    color: var(--text-color);
+}
+
+.account-card .games-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+/* Add these to your existing styles.css */
+
+.account-card {
+    height: auto;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.games-list {
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.game-item {
+    transition: all 0.3s ease;
+}
+
+.game-item.hidden {
+    display: none;
+}
+
+.expand-button {
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 1rem;
+    background: rgba(102, 192, 244, 0.1);
+    border: none;
+    border-radius: 6px;
+    color: var(--steam-blue);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.expand-button:hover {
+    background: rgba(102, 192, 244, 0.2);
+}
+.account-credentials {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+.credential-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.credential-item:last-child {
+    margin-bottom: 0;
+}
+
+.credential-item .label {
+    color: var(--text-secondary);
+}
+
+.credential-item .value {
+    color: var(--steam-blue);
+    font-family: monospace;
+    font-size: 0.95rem;
+}
+.about-content h2 {
+    color: var(--steam-blue);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.creator-info, .tech-stack {
+    margin-top: 2rem;
+}
+
+.creator-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--steam-blue);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    background: rgba(102, 192, 244, 0.1);
+    border-radius: 6px;
+    margin-top: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.creator-link:hover {
+    background: rgba(102, 192, 244, 0.2);
+    transform: translateY(-2px);
+}
+
+.tech-stack ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+/* Footer */
+footer {
+    background-color: rgba(27, 40, 56, 0.95);
+    padding: 2rem;
+    margin-top: 4rem;
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(102, 192, 244, 0.2);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.credit a {
+    color: var(--steam-blue);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-links a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--accent-hover);
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .search-container {
+        flex-direction: column;
+    }
+    
+    .accounts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .nav-links a {
+        margin-left: 0;
+    }
+}

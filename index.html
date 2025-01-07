@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steam Library Sharing | po1sontre</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="dark-theme">
+    <div class="background-overlay"></div>
+    
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fab fa-steam"></i>
+                <span>Steam Library</span>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="active"><i class="fas fa-home"></i> Home</a>
+                <a href="#about"><i class="fas fa-info-circle"></i> About</a>
+                <a href="https://github.com/po1sontre" target="_blank">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="search-section">
+            <div class="search-container">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search games...">
+                </div>
+                <div class="filter-box">
+                    <i class="fas fa-filter"></i>
+                    <select id="genreFilter">
+                        <option value="">All Genres</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-banner">
+            <div class="stats">
+                <div class="stat-item">
+                    <i class="fas fa-users"></i>
+                    <span id="totalAccounts">0</span>
+                    <label>Accounts</label>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-gamepad"></i>
+                    <span id="totalGames">0</span>
+                    <label>Games</label>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-tags"></i>
+                    <span id="totalGenres">0</span>
+                    <label>Genres</label>
+                </div>
+            </div>
+        </section>
+
+        <section class="accounts-grid" id="accountsContainer">
+            <!-- Accounts will be dynamically inserted here -->
+        </section>
+
+        <section id="about" class="about-section hidden">
+            <div class="about-content">
+                <h2><i class="fas fa-info-circle"></i> About Steam Library</h2>
+                <p>A curated collection of shared Steam accounts and their games.</p>
+                <div class="creator-info">
+                    <h3><i class="fas fa-code"></i> Created by</h3>
+                    <a href="https://github.com/po1sontre" target="_blank" class="creator-link">
+                        <i class="fab fa-github"></i> po1sontre
+                    </a>
+                </div>
+                <div class="tech-stack">
+                    <h3><i class="fas fa-tools"></i> Built with</h3>
+                    <ul>
+                        <li><i class="fab fa-html5"></i> HTML5</li>
+                        <li><i class="fab fa-css3-alt"></i> CSS3</li>
+                        <li><i class="fab fa-js"></i> JavaScript</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <p>© 2025 Steam Library</p>
+                <p class="credit">Created by <a href="https://github.com/po1sontre" target="_blank">po1sontre</a></p>
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/po1sontre" target="_blank" class="github-link">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
