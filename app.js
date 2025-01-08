@@ -1,14 +1,12 @@
 class SteamLibrary {
     constructor() {
         this.accounts = [];
-        this.genres = new Set();
         this.init();
     }
 
     async init() {
         this.setupEventListeners();
         await this.loadAccounts();
-        this.populateGenreFilter();
         this.updateStats();
         this.renderAccounts();
         this.setupSearchDebounce();
@@ -21,11 +19,6 @@ class SteamLibrary {
                 this.handleNavigation(e.target.getAttribute('href'));
             });
         });
-
-        document.getElementById('genreFilter').addEventListener('change', () => {
-            this.filterAccounts();
-            this.animateResults();
-        });
     }
 
     setupSearchDebounce() {
@@ -37,6 +30,7 @@ class SteamLibrary {
             debounceTimeout = setTimeout(() => {
                 this.filterAccounts();
                 this.animateResults();
+                this.updateStats(); // Update stats when filtering
             }, 300);
         });
     }
@@ -56,19 +50,22 @@ class SteamLibrary {
     updateStats() {
         const totalAccountsElement = document.getElementById('totalAccounts');
         const totalGamesElement = document.getElementById('totalGames');
+        const visibleAccounts = document.querySelectorAll('.account-card');
+        
+        // Count total games from visible accounts
+        const totalGames = Array.from(visibleAccounts).reduce((sum, card) => {
+            const gamesText = card.querySelector('.games-badge').textContent;
+            const gamesCount = parseInt(gamesText.match(/\d+/)[0]); // Extract only the number
+            return sum + gamesCount;
+        }, 0);
 
-        const totalAccounts = this.accounts.length;
-        const totalGames = this.accounts.reduce((sum, account) => sum + account.games.length, 0);
-
-        totalAccountsElement.textContent = totalAccounts;
+        totalAccountsElement.textContent = visibleAccounts.length;
         totalGamesElement.textContent = totalGames;
-        document.getElementById('totalGenres').style.display = 'none';
-    }
-
-    populateGenreFilter() {
-        const filterBox = document.querySelector('.filter-box');
-        if (filterBox) {
-            filterBox.style.display = 'none';
+        
+        // Hide the genres element
+        const totalGenresElement = document.getElementById('totalGenres');
+        if (totalGenresElement) {
+            totalGenresElement.parentElement.style.display = 'none';
         }
     }
 
@@ -155,6 +152,8 @@ class SteamLibrary {
             
             container.appendChild(card);
         });
+        
+        this.updateStats(); // Update stats after rendering
     }
 
     capitalizeGame(game) {
