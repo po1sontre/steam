@@ -461,6 +461,18 @@ select:focus {
     gap: 0.5rem;
 }
 
+#viewCounter {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+    #viewCounter {
+        margin-top: 1.5rem;
+    }
+}
+
 .mission-statement {
     font-size: 1.1rem;
     margin-bottom: 2rem;
