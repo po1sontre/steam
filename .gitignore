@@ -1,8 +1,8 @@
-account data
-mixedAccountsData.js
+# Ignore specific files
+account data/
 newex.py
 mixer.py
 extractor.py
-raw
-mixer.py
+raw/
 remover.py
+ex3.py
