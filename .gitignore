@@ -6,3 +6,4 @@ extractor.py
 raw/
 remover.py
 ex3.py
+.config.json
